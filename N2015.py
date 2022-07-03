@@ -1,0 +1,24 @@
+import sys, collections, bisect
+N, K = map(int, sys.stdin.readline().split())
+arr = list(map(int, sys.stdin.readline().split()))
+dp = arr[:]
+dp_dict = collections.defaultdict(list)
+
+for i in range(1, N):
+    dp[i] += dp[i - 1]
+
+for i in range(N):
+    dp_dict[dp[i]].append(i)
+
+answer = 0
+for i in range(N):
+    # CASE 1
+    if dp[i] == K:
+        answer += 1
+
+    # CASE 2
+    key = dp[i] - K
+    target = dp_dict[key]
+    if target:
+        answer += bisect.bisect_left(target, i)
+print(answer)
