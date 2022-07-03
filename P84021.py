@@ -1,3 +1,4 @@
+from ast import Return
 import collections
 
 
@@ -98,7 +99,7 @@ def solution(game_board, table):
                         full_list[empty_index] = True
                         answer += len(emptys)
                         break
-    print(answer)
+    return answer
 
 solution([[1,1,0,0,1,0],[0,0,1,0,1,0],[0,1,1,0,0,1],[1,1,0,1,1,1],[1,0,0,0,1,0],[0,1,1,1,0,0]] ,	[[1,0,0,1,1,0],[1,0,1,0,1,0],[0,1,1,0,1,1],[0,0,1,0,0,0],[1,1,0,1,1,0],[0,1,0,0,0,0]])
 
